@@ -1,0 +1,36 @@
+---
+- name: Create deconz user
+  user:
+    name: '{{ deconz_user }}'
+    comment: 'Deconz User'
+    create_home: true
+    home: '{{ deconz_homedir }}'
+    password_lock: true
+    groups: dialout
+
+- name: Manage repository
+  import_tasks: repo.yml
+  when:
+    - deconz_manage_repo
+
+- name: Install deconz
+  apt:
+    name: deconz
+    update_cache: true
+
+- name: Install systemd unitfile
+  template:
+    dest: /etc/systemd/system/deconz.service
+    src: deconz.service.j2
+  notify:
+    - Restart deconz
+
+- name: Reload systemd
+  systemd:
+    daemon-reload: true
+
+- name: Start and enable deconz service
+  service:
+    name: deconz
+    state: started
+    enabled: true

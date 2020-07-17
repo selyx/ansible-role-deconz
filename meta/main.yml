@@ -1,0 +1,17 @@
+galaxy_info:
+  author: selyx
+  description: Install and configure deCONZ application to support Dresden Elektronik Conbee 2
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 2.6
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - xenial
+  galaxy_tags:
+    - deCONZ
+    - Conbee
+    - Conbee II
+    - Phoscon
+
+dependencies: []

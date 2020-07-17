@@ -1,0 +1,11 @@
+---
+deconz_homedir: /var/lib/deconz
+deconz_manage_repo: true
+deconz_platform: minimal
+deconz_port: 58000
+deconz_user_uid: 
+deconz_user: deconz
+deconz_repo_url: http://phoscon.de/apt/deconz
+deconz_repo_distribution: '{{ ansible_distribution_release }}'
+deconz_gpg_url: http://phoscon.de/apt/deconz.pub.key
+deconz_gpg_id: 43D8720A

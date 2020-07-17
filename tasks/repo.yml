@@ -1,0 +1,18 @@
+---
+  # TODO: This can be removed once focal is officially supported
+- name: Include release specific variables
+  include_vars: ubuntu-focal.yml
+  when:
+    ansible_distribution_release == 'focal'
+
+- name: Add apt gpg key
+  apt_key:
+    url: '{{ deconz_gpg_url }}'
+    validate_certs: true
+    id: '{{ deconz_gpg_id }}'
+
+- name: Add apt repository
+  apt_repository:
+    repo: 'deb [arch=amd64] {{ deconz_repo_url }} {{ deconz_repo_distribution }} main'
+    update_cache: true
+    filename: deconz.list
