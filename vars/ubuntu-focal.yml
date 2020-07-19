@@ -1,1 +1,3 @@
+# TODO: This can be removed once focal is officially supported
 deconz_repo_distribution: xenial
+deconz_repo_url_full: 'deb [arch=amd64] {{ deconz_repo_url }} {{ deconz_repo_distribution }} main'
