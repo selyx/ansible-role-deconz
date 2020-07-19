@@ -1,0 +1,1 @@
+deconz_repo_url_full: 'deb {{ deconz_repo_url }} {{ deconz_repo_distribution }} main'

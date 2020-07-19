@@ -1,4 +1,14 @@
 ---
+- name: Include ubuntu specific variables
+  include_vars: ubuntu-focal.yml
+  when:
+    ansible_distribution_release == 'focal'
+
+- name: Include buster specific variables
+  include_vars: debian-buster.yml
+  when:
+    ansible_distribution_release == 'buster'
+
 - name: Create deconz user
   user:
     name: '{{ deconz_user }}'
